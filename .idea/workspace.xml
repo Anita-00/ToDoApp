@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82004cb5-a503-45ec-8cd4-a7870de060a5" name="Changes" comment="commit workspace">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="82004cb5-a503-45ec-8cd4-a7870de060a5" name="Changes" comment="commit readme test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709591084609</updated>
-      <workItem from="1709591086239" duration="3165000" />
+      <workItem from="1709591086239" duration="3358000" />
     </task>
     <task id="LOCAL-00001" summary="added front end">
       <created>1709591856817</created>
@@ -110,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1709594284074</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="commit readme test">
+      <created>1709594353152</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1709594353152</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +138,7 @@
     <MESSAGE value="initial commit 2" />
     <MESSAGE value="adding unversioned filed" />
     <MESSAGE value="commit workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit workspace" />
+    <MESSAGE value="commit readme test" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit readme test" />
   </component>
 </project>
