@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82004cb5-a503-45ec-8cd4-a7870de060a5" name="Changes" comment="initial commit" />
+    <list default="true" id="82004cb5-a503-45ec-8cd4-a7870de060a5" name="Changes" comment="adding unversioned filed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709591084609</updated>
-      <workItem from="1709591086239" duration="2503000" />
+      <workItem from="1709591086239" duration="2817000" />
     </task>
     <task id="LOCAL-00001" summary="added front end">
       <created>1709591856817</created>
@@ -79,7 +79,28 @@
       <option name="project" value="LOCAL" />
       <updated>1709593642589</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="initial commit 2">
+      <created>1709593714676</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709593714676</updated>
+    </task>
+    <task id="LOCAL-00005" summary="initial commit 2">
+      <created>1709593719817</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709593719817</updated>
+    </task>
+    <task id="LOCAL-00006" summary="adding unversioned filed">
+      <created>1709593808175</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709593808175</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +121,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added front end" />
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="initial commit 2" />
+    <MESSAGE value="adding unversioned filed" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding unversioned filed" />
   </component>
 </project>
