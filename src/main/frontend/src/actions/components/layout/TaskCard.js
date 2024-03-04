@@ -1,7 +1,6 @@
 import Card from "react-bootstrap/Card";
-import Tabs from "./Tabs";
 
-function Card() {
+function TaskCard() {
     return (
         <Card style={styles.ToDoCard}>
             <Card.Body>Changing up the text.....</Card.Body>
@@ -16,4 +15,4 @@ const styles = {
     }
 }
 
-export default Card;
+export default TaskCard;
