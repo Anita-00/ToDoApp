@@ -21,7 +21,7 @@ function Tabs() {
     };
 
     return (
-        <Container className="mx-0">
+        <div className="mx-2">
             <Row>
                 <Col md={4}>
                     <Nav variant="tabs" defaultActiveKey="/home" style={styles.tabsLayout}>
@@ -42,7 +42,7 @@ function Tabs() {
                 </Button>
                 </Col>
             </Row>
-        </Container>
+        </div>
     );
 }
 

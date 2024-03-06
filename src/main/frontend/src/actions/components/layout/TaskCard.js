@@ -93,7 +93,7 @@ function TaskCard() {
     }
 
     return (
-        <Container className="mx-0">
+        <div className="mx-2">
             <Card style={styles.ToDoCard}>
             <table class="table text-white mb-0">
             <thead>
@@ -107,7 +107,7 @@ function TaskCard() {
                 <Table data={rows} />
             </table>
             </Card>
-        </Container>
+        </div>
         
     );
 }
