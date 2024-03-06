@@ -26,10 +26,10 @@ function Tabs() {
                 <Col md={4}>
                     <Nav variant="tabs" defaultActiveKey="/home" style={styles.tabsLayout}>
                         <Nav.Item>
-                            <Nav.Link style={styles.tabsText} href="/home">Completed</Nav.Link>
+                            <Nav.Link style={styles.tabsText} href="/home">Active</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link style={styles.tabsText} eventKey="link-1">Active</Nav.Link>
+                            <Nav.Link style={styles.tabsText} eventKey="link-1">Completed</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link style={styles.tabsText} eventKey="link-2">Upcoming</Nav.Link>
@@ -41,7 +41,7 @@ function Tabs() {
                     Add Task
                 </Button>
                 </Col>
-                <Modal show={show} onHide={handleClose}>
+                {/* <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Add New Task</Modal.Title>
                     </Modal.Header>
@@ -77,7 +77,7 @@ function Tabs() {
                             Save
                         </Button>
                     </Modal.Footer>
-                </Modal>
+                </Modal> */}
             </Row>
         </Container>
     );

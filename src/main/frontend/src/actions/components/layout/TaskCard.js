@@ -3,9 +3,18 @@ import React from 'react';
 import { useState } from 'react';
 import TaskItem from "./TaskItem";
 import Container from "react-bootstrap/esm/Container";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencilAlt, faTrash } from '@fortawesome/fontawesome-free-solid';
+
+const tasks = [
+    { buttonId: 1, tasks: "Call Sam For payments", priority: 'High' },
+    { buttonId: 2, tasks: "Make payment to Bluedart", priority: 'Low' },
+    { buttonId: 3, tasks: "Office rent", priority: 'Medium' },
+    { buttonId: 4, tasks: "Office grocery shopping", priority: 'High' }
+]
 
 function TaskCard() {
-    // Creates the whole card for tasks
+    // Creates the whole table for tasks
     // Each tasks includes priority, completion status, and actions
 
     const [checked, setChecked] = useState(false);
@@ -14,85 +23,50 @@ function TaskCard() {
         console.log(checked);
     }
 
+    const [rows, setRows] = useState(tasks);
+    const Row = (props) => {
+        const { buttonId , tasks, priority } = props;
+        return (
+            <tr>
+                <td class="align-middle" style={{paddingLeft:"3%"}}>
+                    <input id={buttonId} value = "test" type = "checkbox" onChange = {handleChange} />
+                </td>
+                <td class="align-middle">
+                    <span>{tasks}</span> 
+                </td>
+                <td class="align-middle">
+                    <h6 class="mb-0"><span className={`badge ${priority === 'Low' ? 'bg-success' : priority === 'Medium' ? 'bg-warning' : 'bg-danger'}`}>{priority} Priority</span></h6>
+                </td>
+                <td class="align-middle">
+                    <FontAwesomeIcon icon={faPencilAlt} className="mx-2"/>
+                    <FontAwesomeIcon icon={faTrash} className="mx-2"/>
+                </td>
+            </tr>
+        )
+    }
+    const Table = (props) => {
+        const {data} = props;
+        return (
+            <tbody>
+                {data.map((row, i) => <Row key={i} {...row} />)}
+            </tbody>
+        )
+    }
+
     return (
         <Container className="mx-0">
             <Card style={styles.ToDoCard}>
             <table class="table text-white mb-0">
             <thead>
-            <tr>
-                <th scope="col">Completed</th>
-                <th scope="col">Task</th>
-                <th scope="col">Priority</th>
-                <th scope="col">Actions</th>
-            </tr>
+                <tr>
+                    <th scope="col">Completed</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Priority</th>
+                    <th scope="col">Actions</th>
+                </tr>
             </thead>
-            <tbody>
-            <tr class="fw-normal">
-                <th>
-                <span class="ms-2">Alice Mayer</span>
-                </th>
-                <td class="align-middle">
-                <span>Call Sam For paymentsaa</span> 
-                </td>
-                <td class="align-middle">
-                <h6 class="mb-0"><span class="badge bg-danger">High priority</span></h6>
-                </td>
-                <td class="align-middle">
-                <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
-                    class="fas fa-check fa-lg text-success me-3"></i></a>
-                <a href="#!" data-mdb-toggle="tooltip" title="Remove"><i
-                    class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                </td>
-            </tr>
-            <tr class="fw-normal">
-                <th>
-
-                <span class="ms-2">Kate Moss</span>
-                </th>
-                <td class="align-middle">Make payment to Bluedart</td>
-                <td class="align-middle">
-                <h6 class="mb-0"><span class="badge bg-success">Low priority</span></h6>
-                </td>
-                <td class="align-middle">
-                <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
-                    class="fas fa-check fa-lg text-success me-3"></i></a>
-                <a href="#!" data-mdb-toggle="tooltip" title="Remove"><i
-                    class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                </td>
-            </tr>
-            <tr class="fw-normal">
-                <th>
-                <span class="ms-2">Danny McChain</span>
-                </th>
-                <td class="align-middle">Office rent</td>
-                <td class="align-middle">
-                <h6 class="mb-0"><span class="badge bg-warning">Middle priority</span></h6>
-                </td>
-                <td class="align-middle">
-                <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
-                    class="fas fa-check fa-lg text-success me-3"></i></a>
-                <a href="#!" data-mdb-toggle="tooltip" title="Remove"><i
-                    class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                </td>
-            </tr>
-            <tr class="fw-normal">
-                <th>
-                <span class="ms-2">Alexa Chung</span>
-                </th>
-                <td class="align-middle">Office grocery shopping</td>
-                <td class="align-middle">
-                <h6 class="mb-0"><span class="badge bg-danger">High priority</span></h6>
-                </td>
-                <td class="align-middle">
-                <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
-                    class="fas fa-check fa-lg text-success me-3"></i></a>
-                <a href="#!" data-mdb-toggle="tooltip" title="Remove"><i
-                    class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                </td>
-            </tr>
-            </tbody>
+                <Table data={rows} />
             </table>
-            < TaskItem />
             </Card>
         </Container>
         
@@ -104,7 +78,6 @@ const styles = {
         height: '100%',
         marginTop: '0%',
         borderRadius: '0px 0px 0.375rem 0.375rem',
-
     }
 }
 

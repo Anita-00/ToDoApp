@@ -14,6 +14,7 @@ function TaskItem() {
 
     return (
         <table>
+            <tbody>
             <tr class="fw-normal">
                 <td class="align-middle">
                     <input value = "test" type = "checkbox" onChange = {handleChange} />
@@ -35,6 +36,7 @@ function TaskItem() {
                     <FontAwesomeIcon icon={faTrash} />
                 </td>
             </tr>
+            </tbody>
         </table>
      
     );
