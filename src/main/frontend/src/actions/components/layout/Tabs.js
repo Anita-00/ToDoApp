@@ -3,8 +3,23 @@ import Button from 'react-bootstrap/Button';
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useState } from "react";
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 function Tabs() {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleSave = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const [priority, setPriority] = useState('low');
+
+    const handlePriorityChange = (event) => {
+        setPriority(event.target.value);
+    };
+
     return (
         <Container className="mx-0">
             <Row>
@@ -22,8 +37,47 @@ function Tabs() {
                     </Nav>
                 </Col>
                 <Col md={8} className="d-flex justify-content-end my-1">
-                    <Button variant="primary">Add Task</Button>
+                <Button variant="primary" onClick={handleShow}>
+                    Add Task
+                </Button>
                 </Col>
+                <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Add New Task</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                    <Form>
+                        <Form.Group as={Row} className="mb-3" controlId="taskName">
+                            <Form.Label column sm="2">
+                                Task
+                            </Form.Label>
+                            <Col sm="10">
+                            <Form.Control type="text" placeholder="Enter task name" />
+                            </Col>
+                        </Form.Group>
+                        <Form.Group as={Row} controlId="priority">
+                            <Form.Label column sm="2"> 
+                                Priority 
+                            </Form.Label>
+                            <Col sm="10">
+                                <Form.Select onChange={handlePriorityChange} value={priority}>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </Form.Select>
+                            </Col>
+                        </Form.Group>
+                        </Form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Cancel
+                        </Button>
+                        <Button variant="primary" onClick={handleSave}>
+                            Save
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </Row>
         </Container>
     );
