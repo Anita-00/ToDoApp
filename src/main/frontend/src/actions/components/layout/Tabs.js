@@ -41,43 +41,6 @@ function Tabs() {
                     Add Task
                 </Button>
                 </Col>
-                {/* <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Add New Task</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                    <Form>
-                        <Form.Group as={Row} className="mb-3" controlId="taskName">
-                            <Form.Label column sm="2">
-                                Task
-                            </Form.Label>
-                            <Col sm="10">
-                            <Form.Control type="text" placeholder="Enter task name" />
-                            </Col>
-                        </Form.Group>
-                        <Form.Group as={Row} controlId="priority">
-                            <Form.Label column sm="2"> 
-                                Priority 
-                            </Form.Label>
-                            <Col sm="10">
-                                <Form.Select onChange={handlePriorityChange} value={priority}>
-                                    <option value="low">Low</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="high">High</option>
-                                </Form.Select>
-                            </Col>
-                        </Form.Group>
-                        </Form>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Cancel
-                        </Button>
-                        <Button variant="primary" onClick={handleSave}>
-                            Save
-                        </Button>
-                    </Modal.Footer>
-                </Modal> */}
             </Row>
         </Container>
     );

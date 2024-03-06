@@ -4,7 +4,9 @@ import { useState } from 'react';
 import TaskItem from "./TaskItem";
 import Container from "react-bootstrap/esm/Container";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPencilAlt, faTrash } from '@fortawesome/fontawesome-free-solid';
+import { faPencilAlt, faTrash, faCheck, faTimes } from '@fortawesome/fontawesome-free-solid';
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
 
 const tasks = [
     { buttonId: 1, tasks: "Call Sam For payments", priority: 'High' },
@@ -22,7 +24,11 @@ function TaskCard() {
         setChecked(e.target.checked);
         console.log(checked);
     }
+    const [taskPriority, setTaskPriority] = useState('low');
 
+    const handlePriorityChange = (event) => {
+        setTaskPriority(event.target.value);
+    };
     const [rows, setRows] = useState(tasks);
     const Row = (props) => {
         const { buttonId , tasks, priority } = props;
@@ -31,8 +37,8 @@ function TaskCard() {
                 <td class="align-middle" style={{paddingLeft:"3%"}}>
                     <input id={buttonId} value = "test" type = "checkbox" onChange = {handleChange} />
                 </td>
-                <td class="align-middle">
-                    <span>{tasks}</span> 
+                <td class="align-middle" >
+                    <span className="mx-2">{tasks}</span> 
                 </td>
                 <td class="align-middle">
                     <h6 class="mb-0"><span className={`badge ${priority === 'Low' ? 'bg-success' : priority === 'Medium' ? 'bg-warning' : 'bg-danger'}`}>{priority} Priority</span></h6>
@@ -44,11 +50,44 @@ function TaskCard() {
             </tr>
         )
     }
+
+    const emptyRow = (props) => {
+        const { buttonId , tasks, priority } = props;
+        return (
+            <tr>
+                <td class="align-middle" style={{paddingLeft:"3%"}}>
+                    <input id={buttonId} value = "test" type = "checkbox" onChange = {handleChange} />
+                </td>
+                <td class="align-middle">
+                    <Col sm="8">
+                        <Form.Control type="text" placeholder="Enter task name"/>
+                    </Col>
+                </td>
+                <td class="align-middle">
+                    <Form.Group controlId="taskPriority">
+                            <Col sm="8">
+                                <Form.Select onChange={handlePriorityChange} value={taskPriority}>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </Form.Select>
+                            </Col>
+                    </Form.Group>
+                </td>
+                <td class="align-middle">
+                    <FontAwesomeIcon icon={faCheck} className="mx-2" style={{color: 'green'}}/>
+                    <FontAwesomeIcon icon={faTimes} className="mx-2" style={{color: 'red'}}/>
+                </td>
+            </tr>
+        )
+    }
+
     const Table = (props) => {
         const {data} = props;
         return (
             <tbody>
                 {data.map((row, i) => <Row key={i} {...row} />)}
+                {emptyRow({buttonId: 5, tasks: "test", priority: "low"})}
             </tbody>
         )
     }
@@ -78,7 +117,7 @@ const styles = {
         height: '100%',
         marginTop: '0%',
         borderRadius: '0px 0px 0.375rem 0.375rem',
-    }
+    },
 }
 
 export default TaskCard;
