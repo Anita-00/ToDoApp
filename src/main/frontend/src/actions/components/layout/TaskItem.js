@@ -3,7 +3,14 @@ import { faPencilAlt, faTrash } from '@fortawesome/fontawesome-free-solid';
 import React from 'react';
 import { useState } from 'react';
 
-function TaskItem() {
+const tasks = [
+    { buttonId: 1, tasks: "Call Sam For payments", priority: 'High' },
+    { buttonId: 2, tasks: "Make payment to Bluedart", priority: 'Low' },
+    { buttonId: 3, tasks: "Office rent", priority: 'Medium' },
+    { buttonId: 4, tasks: "Office grocery shopping", priority: 'High' }
+]
+
+function TaskItem({task}) {
     // Creates one task item with a checkbox, task name, priority, and actions
 
     const [checked, setChecked] = useState(false);
@@ -12,33 +19,37 @@ function TaskItem() {
         console.log(checked);
     }
 
-    return (
-        <table>
-            <tbody>
-            <tr class="fw-normal">
-                <td class="align-middle">
-                    <input value = "test" type = "checkbox" onChange = {handleChange} />
+    const [rows, setRows] = useState(tasks);
+    const TaskRow = (props) => {
+        const { buttonId , tasks, priority } = props;
+        const handleEditTask = () => {
+            console.log('Edit task');
+        }
+        const handleDeleteTask = () => {
+            console.log('Delete task');
+        }
+
+        return (
+            <tr>
+                <td class="align-middle" style={{paddingLeft:"3%"}}>
+                    <input id={buttonId} value = "test" type = "checkbox" onChange = {handleChange} />
+                </td>
+                <td class="align-middle" >
+                    <span className="mx-2">{tasks}</span> 
                 </td>
                 <td class="align-middle">
-                    <span>Call Sam For paymentsaa</span> 
+                    <h6 class="mb-0"><span className={`badge ${priority === 'Low' ? 'bg-success' : priority === 'Medium' ? 'bg-warning' : 'bg-danger'}`}>{priority} Priority</span></h6>
                 </td>
                 <td class="align-middle">
-                    <h6 class="mb-0"><span class="badge bg-danger">High priority</span></h6>
-                </td>
-                <td class="align-middle">
-                    <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
-                        class="fas fa-check fa-lg text-success me-3"></i></a>
-                    <a href="#!" data-mdb-toggle="tooltip" title="Remove"><i
-                        class="fas fa-trash-alt fa-lg text-warning"></i></a>
-                </td>
-                <td class="align-middle">
-                    <FontAwesomeIcon icon={faPencilAlt} />
-                    <FontAwesomeIcon icon={faTrash} />
+                    <FontAwesomeIcon icon={faPencilAlt} className="mx-2" onClick={handleEditTask}/>
+                    <FontAwesomeIcon icon={faTrash} className="mx-2" onClick={handleDeleteTask}/>
                 </td>
             </tr>
-            </tbody>
-        </table>
-     
+        )
+    }
+
+    return (
+        TaskRow(task)        
     );
 }
 
