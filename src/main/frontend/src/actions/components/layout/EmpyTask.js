@@ -8,7 +8,7 @@ import { faPencilAlt, faTrash, faCheck, faTimes } from '@fortawesome/fontawesome
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 
-function EmptyTask ({ showEmptyRow, setShowEmptyRow }) {
+function EmptyTask ({ showEmptyRow, setShowEmptyRow, isAddClicked, setIsAddClicked }) {
       // Creates an empty row for adding a new task
       // Users can add or reject the new task
 
@@ -24,9 +24,16 @@ function EmptyTask ({ showEmptyRow, setShowEmptyRow }) {
             setTaskPriority(event.target.value);
       };
 
+      const handleAddNewTask = () => {
+            // Removes the row to add a new tasks because delete button was clicked
+            setShowEmptyRow(false);
+            setIsAddClicked(false);
+      }
+
       const handleDeleteNewTask = () => {
             // Removes the row to add a new tasks because delete button was clicked
             setShowEmptyRow(false);
+            setIsAddClicked(false);
       }
 
       const emptyRow = (props) => {
@@ -54,7 +61,7 @@ function EmptyTask ({ showEmptyRow, setShowEmptyRow }) {
                         </Form.Group>
                   </td>
                   <td class="align-middle">
-                        <FontAwesomeIcon icon={faCheck} className="mx-2" style={{color: 'green'}}/>
+                        <FontAwesomeIcon icon={faCheck} className="mx-2" style={{color: 'green'}} onClick={handleAddNewTask}/>
                         <FontAwesomeIcon icon={faTimes} className="mx-2" style={{color: 'red'}} onClick={handleDeleteNewTask}/>
                   </td>
             </tr>

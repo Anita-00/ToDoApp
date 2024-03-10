@@ -16,7 +16,7 @@ const tasks = [
     { buttonId: 4, tasks: "Office grocery shopping", priority: 'High' }
 ]
 
-function TaskCard({ showEmptyRow, setShowEmptyRow }) {
+function TaskCard({ showEmptyRow, setShowEmptyRow, isAddClicked, setIsAddClicked }) {
     // Creates the whole table for tasks
     // Each tasks includes priority, completion status, and actions
 
@@ -58,7 +58,7 @@ function TaskCard({ showEmptyRow, setShowEmptyRow }) {
             <tbody>
                 {data.map((row, i) => <Row key={i} {...row} />)}
                 {/* TO DO - remove hardcoding of adding a task */}
-                {showEmptyRow && <EmptyTask showEmptyRow={showEmptyRow} setShowEmptyRow={setShowEmptyRow} />}
+                {showEmptyRow && <EmptyTask showEmptyRow={showEmptyRow} setShowEmptyRow={setShowEmptyRow} isAddClicked={isAddClicked} setIsAddClicked={setIsAddClicked}/>}
             </tbody>
         )
     }

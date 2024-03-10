@@ -14,6 +14,7 @@ function Tabs() {
     const handleClose = () => setShow(false);
     const handleSave = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [isAddClicked, setIsAddClicked] = useState(false);
 
     const [priority, setPriority] = useState('low');
 
@@ -24,6 +25,7 @@ function Tabs() {
     const [showEmptyRow, setShowEmptyRow] = useState(false);
 
     const handleAddTask = () => {
+        setIsAddClicked(true);
         setShowEmptyRow(true);
     };
 
@@ -44,11 +46,11 @@ function Tabs() {
                     </Nav>
                 </Col>
                 <Col md={8} className="d-flex justify-content-end my-1">
-                <Button variant="primary" onClick={handleAddTask}>
+                <Button variant="primary" onClick={handleAddTask} disabled={isAddClicked}>
                     Add Task
                 </Button>
                 </Col>
-                <TaskCard showEmptyRow={showEmptyRow} setShowEmptyRow={setShowEmptyRow} />
+                <TaskCard showEmptyRow={showEmptyRow} setShowEmptyRow={setShowEmptyRow} isAddClicked={isAddClicked} setIsAddClicked={setIsAddClicked} />
             </Row>
         </div>
     );
