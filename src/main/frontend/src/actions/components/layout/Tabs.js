@@ -7,6 +7,7 @@ import { useState } from "react";
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import TaskCard from "./TaskCard";
 
 function Tabs() {
     const [show, setShow] = useState(false);
@@ -18,6 +19,12 @@ function Tabs() {
 
     const handlePriorityChange = (event) => {
         setPriority(event.target.value);
+    };
+
+    const [showEmptyRow, setShowEmptyRow] = useState(false);
+
+    const handleAddTask = () => {
+        setShowEmptyRow(true);
     };
 
     return (
@@ -37,10 +44,11 @@ function Tabs() {
                     </Nav>
                 </Col>
                 <Col md={8} className="d-flex justify-content-end my-1">
-                <Button variant="primary" onClick={handleShow}>
+                <Button variant="primary" onClick={handleAddTask}>
                     Add Task
                 </Button>
                 </Col>
+                <TaskCard showEmptyRow={showEmptyRow} setShowEmptyRow={setShowEmptyRow} />
             </Row>
         </div>
     );

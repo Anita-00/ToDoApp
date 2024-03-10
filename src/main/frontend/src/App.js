@@ -30,7 +30,7 @@ function App() {
                 </Container>
             </Navbar>
             <Tabs />
-            <TaskCard />
+            {/* <TaskCard /> */}
         </div>
   );
 }

@@ -15,7 +15,7 @@ const tasks = [
     { buttonId: 4, tasks: "Office grocery shopping", priority: 'High' }
 ]
 
-function TaskCard() {
+function TaskCard({ showEmptyRow, setShowEmptyRow }) {
     // Creates the whole table for tasks
     // Each tasks includes priority, completion status, and actions
 
@@ -54,7 +54,7 @@ function TaskCard() {
     const emptyRow = (props) => {
         const { buttonId , tasks, priority } = props;
         return (
-            <tr>
+            <tr key="empty-row">
                 <td class="align-middle" style={{paddingLeft:"3%"}}>
                     <input id={buttonId} value = "test" type = "checkbox" onChange = {handleChange} />
                 </td>
@@ -87,7 +87,8 @@ function TaskCard() {
         return (
             <tbody>
                 {data.map((row, i) => <Row key={i} {...row} />)}
-                {emptyRow({buttonId: 5, tasks: "test", priority: "low"})}
+                {/* TO DO - remove hardcoding of adding a task */}
+                {showEmptyRow && emptyRow({buttonId: 5, tasks: "test", priority: "low"})}
             </tbody>
         )
     }
