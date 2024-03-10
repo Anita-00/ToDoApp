@@ -58,7 +58,7 @@ function TaskCard({ showEmptyRow, setShowEmptyRow }) {
             <tbody>
                 {data.map((row, i) => <Row key={i} {...row} />)}
                 {/* TO DO - remove hardcoding of adding a task */}
-                {showEmptyRow && <EmptyTask />}
+                {showEmptyRow && <EmptyTask showEmptyRow={showEmptyRow} setShowEmptyRow={setShowEmptyRow} />}
             </tbody>
         )
     }
