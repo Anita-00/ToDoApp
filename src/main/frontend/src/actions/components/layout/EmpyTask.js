@@ -25,7 +25,7 @@ function EmptyTask ({ showEmptyRow, setShowEmptyRow, isAddClicked, setIsAddClick
       };
 
       const handleAddNewTask = () => {
-            // Removes the row to add a new tasks because delete button was clicked
+            // Adds the row to the database because confirm button was clicked
             setShowEmptyRow(false);
             setIsAddClicked(false);
       }
