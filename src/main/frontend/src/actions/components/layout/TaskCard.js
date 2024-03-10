@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faTrash, faCheck, faTimes } from '@fortawesome/fontawesome-free-solid';
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
+import EmptyTask from "./EmpyTask";
 
 const tasks = [
     { buttonId: 1, tasks: "Call Sam For payments", priority: 'High' },
@@ -51,44 +52,13 @@ function TaskCard({ showEmptyRow, setShowEmptyRow }) {
         )
     }
 
-    const emptyRow = (props) => {
-        const { buttonId , tasks, priority } = props;
-        return (
-            <tr key="empty-row">
-                <td class="align-middle" style={{paddingLeft:"3%"}}>
-                    <input id={buttonId} value = "test" type = "checkbox" onChange = {handleChange} />
-                </td>
-                <td class="align-middle">
-                    <Col sm="8">
-                        <Form.Control type="text" placeholder="Enter task name"/>
-                    </Col>
-                </td>
-                <td class="align-middle">
-                    <Form.Group controlId="taskPriority">
-                            <Col sm="8">
-                                <Form.Select onChange={handlePriorityChange} value={taskPriority}>
-                                    <option value="low">Low</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="high">High</option>
-                                </Form.Select>
-                            </Col>
-                    </Form.Group>
-                </td>
-                <td class="align-middle">
-                    <FontAwesomeIcon icon={faCheck} className="mx-2" style={{color: 'green'}}/>
-                    <FontAwesomeIcon icon={faTimes} className="mx-2" style={{color: 'red'}}/>
-                </td>
-            </tr>
-        )
-    }
-
     const Table = (props) => {
         const {data} = props;
         return (
             <tbody>
                 {data.map((row, i) => <Row key={i} {...row} />)}
                 {/* TO DO - remove hardcoding of adding a task */}
-                {showEmptyRow && emptyRow({buttonId: 5, tasks: "test", priority: "low"})}
+                {showEmptyRow && <EmptyTask />}
             </tbody>
         )
     }
