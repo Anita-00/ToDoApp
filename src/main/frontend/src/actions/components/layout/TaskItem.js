@@ -14,19 +14,23 @@ function TaskItem({task}) {
     // Creates one task item with a checkbox, task name, priority, and actions
 
     const [checked, setChecked] = useState(false);
+    const [deleteTask, setDeleteTask] = useState(false);
+
     function handleChange(e) {
         setChecked(e.target.checked);
         console.log(checked);
     }
 
-    const [rows, setRows] = useState(tasks);
     const TaskRow = (props) => {
         const { buttonId , tasks, priority } = props;
         const handleEditTask = () => {
+            // Allows users to edit task name and priority
             console.log('Edit task');
         }
         const handleDeleteTask = () => {
+            // Removes the row when delete button is clicked
             console.log('Delete task');
+            setDeleteTask(true);
         }
 
         return (
@@ -49,7 +53,7 @@ function TaskItem({task}) {
     }
 
     return (
-        TaskRow(task)        
+        !deleteTask && TaskRow(task)  
     );
 }
 
