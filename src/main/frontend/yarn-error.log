@@ -1,0 +1,79 @@
+Arguments: 
+  C:\Users\socce\CodingProjects\ToDoApp\target\node\node.exe C:\Users\socce\CodingProjects\ToDoApp\target\node\yarn\dist\bin\yarn.js install
+
+PATH: 
+  C:\Users\socce\CodingProjects\ToDoApp\target\node\yarn\dist\bin;C:\Users\socce\CodingProjects\ToDoApp\target\node;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python310\Scripts\;C:\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files\MATLAB\R2023a\bin;C:\Program Files\Git\cmd;C:\Program Files\Maven\apache-maven-3.9.6\bin;C:\Program Files\Java\jdk-21\bin;C:\Users\socce\AppData\Local\Microsoft\WindowsApps;C:\Documents2\CMPUT404_Labs\PyCharm 2021.3.1\bin;;C:\Program Files\heroku\bin;C:\Program Files\JetBrains\WebStorm 2022.2.1\bin;;C:\Users\socce\AppData\Local\Microsoft\WindowsApps;C:\Users\socce\AppData\Local\Programs\Microsoft VS Code\bin;;
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  20.11.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-6.5.1.tgz: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (C:\Users\socce\CodingProjects\ToDoApp\target\node\yarn\dist\lib\cli.js:141376:19)
+      at Object.onceWrapper (node:events:632:28)
+      at ClientRequest.emit (node:events:518:28)
+      at TLSSocket.emitRequestTimeout (node:_http_client:840:9)
+      at Object.onceWrapper (node:events:632:28)
+      at TLSSocket.emit (node:events:530:35)
+      at Socket._onTimeout (node:net:589:8)
+      at listOnTimeout (node:internal/timers:573:17)
+      at process.processTimers (node:internal/timers:514:7)
+
+npm manifest: 
+  {
+    "name": "frontend",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+      "@fortawesome/fontawesome": "^1.1.8",
+      "@fortawesome/fontawesome-free-solid": "^5.0.13",
+      "@fortawesome/fontawesome-svg-core": "^6.5.1",
+      "@fortawesome/free-solid-svg-icons": "^6.5.1",
+      "@fortawesome/react-fontawesome": "^0.2.0",
+      "@testing-library/jest-dom": "^5.17.0",
+      "@testing-library/react": "^13.4.0",
+      "@testing-library/user-event": "^13.5.0",
+      "bootstrap": "^5.3.3",
+      "react": "^18.2.0",
+      "react-bootstrap": "^2.10.1",
+      "react-dom": "^18.2.0",
+      "react-scripts": "5.0.1",
+      "web-vitals": "^2.1.4"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test",
+      "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+      "extends": [
+        "react-app",
+        "react-app/jest"
+      ]
+    },
+    "browserslist": {
+      "production": [
+        ">0.2%",
+        "not dead",
+        "not op_mini all"
+      ],
+      "development": [
+        "last 1 chrome version",
+        "last 1 firefox version",
+        "last 1 safari version"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
