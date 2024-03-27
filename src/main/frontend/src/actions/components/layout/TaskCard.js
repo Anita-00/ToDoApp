@@ -2,11 +2,6 @@ import Card from "react-bootstrap/Card";
 import React from 'react';
 import { useState } from 'react';
 import TaskItem from "./TaskItem";
-import Container from "react-bootstrap/esm/Container";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPencilAlt, faTrash, faCheck, faTimes } from '@fortawesome/fontawesome-free-solid';
-import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
 import EmptyTask from "./EmpyTask";
 
 const tasks = [
@@ -30,33 +25,12 @@ function TaskCard({ showEmptyRow, setShowEmptyRow, isAddClicked, setIsAddClicked
     const handlePriorityChange = (event) => {
         setTaskPriority(event.target.value);
     };
-    const [rows, setRows] = useState(tasks);
-    const Row = (props) => {
-        const { buttonId , tasks, priority } = props;
-        return (
-            <tr>
-                <td class="align-middle" style={{paddingLeft:"3%"}}>
-                    <input id={buttonId} value = "test" type = "checkbox" onChange = {handleChange} />
-                </td>
-                <td class="align-middle" >
-                    <span className="mx-2">{tasks}</span> 
-                </td>
-                <td class="align-middle">
-                    <h6 class="mb-0"><span className={`badge ${priority === 'Low' ? 'bg-success' : priority === 'Medium' ? 'bg-warning' : 'bg-danger'}`}>{priority} Priority</span></h6>
-                </td>
-                <td class="align-middle">
-                    <FontAwesomeIcon icon={faPencilAlt} className="mx-2"/>
-                    <FontAwesomeIcon icon={faTrash} className="mx-2"/>
-                </td>
-            </tr>
-        )
-    }
 
     const Table = (props) => {
         const {data} = props;
         return (
             <tbody>
-                {data.map((row, i) => <Row key={i} {...row} />)}
+                {data.map((row, i) => <TaskItem key={i} task={row} />)}
                 {/* TO DO - remove hardcoding of adding a task */}
                 {showEmptyRow && <EmptyTask showEmptyRow={showEmptyRow} setShowEmptyRow={setShowEmptyRow} isAddClicked={isAddClicked} setIsAddClicked={setIsAddClicked}/>}
             </tbody>
@@ -75,7 +49,7 @@ function TaskCard({ showEmptyRow, setShowEmptyRow, isAddClicked, setIsAddClicked
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
-                <Table data={rows} />
+                <Table data={tasks} />
             </table>
             </Card>
         </div>
