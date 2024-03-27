@@ -1,6 +1,0 @@
-com\example\ToDoApp\Loaders\DatabaseLoader.class
-com\example\ToDoApp\Repositories\TaskRepository.class
-com\example\ToDoApp\ToDoAppApplication.class
-com\example\ToDoApp\Controllers\IndexController.class
-com\example\ToDoApp\Entities\Task.class
-com\example\ToDoApp\HomeController.class
