@@ -3,13 +3,6 @@ import { faPencilAlt, faTrash } from '@fortawesome/fontawesome-free-solid';
 import React from 'react';
 import { useState } from 'react';
 
-const tasks = [
-    { buttonId: 1, tasks: "Call Sam For payments", priority: 'High' },
-    { buttonId: 2, tasks: "Make payment to Bluedart", priority: 'Low' },
-    { buttonId: 3, tasks: "Office rent", priority: 'Medium' },
-    { buttonId: 4, tasks: "Office grocery shopping", priority: 'High' }
-]
-
 function TaskItem({task}) {
     // Creates one task item with a checkbox, task name, priority, and actions
 
