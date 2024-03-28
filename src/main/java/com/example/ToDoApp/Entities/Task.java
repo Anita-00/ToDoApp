@@ -3,12 +3,13 @@ package com.example.ToDoApp.Entities;
 import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Task {
       
-      private @Id @GeneratedValue Long id;
+      private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
       private String taskName;
       private String taskPriority;
       private boolean isCompleted = false;
