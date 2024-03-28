@@ -18,8 +18,8 @@ public class DatabaseLoader implements CommandLineRunner{
 
       @Override
       public void run(String... strings) throws Exception {
-            this.repository.save(new Task("Task 1", "High"));
-            this.repository.save(new Task("Task 2", "Medium"));
-            this.repository.save(new Task("Task 3", "Low"));
+            this.repository.save(new Task("Task 1", "High", false));
+            this.repository.save(new Task("Task 2", "Medium", false));
+            this.repository.save(new Task("Task 3", "Low", false));
       }
 }
