@@ -1,6 +1,6 @@
 import Card from "react-bootstrap/Card";
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TaskItem from "./TaskItem";
 import EmptyTask from "./EmpyTask";
 
@@ -16,15 +16,28 @@ function TaskCard({ showEmptyRow, setShowEmptyRow, isAddClicked, setIsAddClicked
     // Each tasks includes priority, completion status, and actions
 
     const [checked, setChecked] = useState(false);
-    function handleChange(e) {
-        setChecked(e.target.checked);
-        console.log(checked);
-    }
-    const [taskPriority, setTaskPriority] = useState('low');
+    const [allTasks, setAllTasks] = useState(null);
 
-    const handlePriorityChange = (event) => {
-        setTaskPriority(event.target.value);
-    };
+    function getTasks() {
+        // Get previously created and active tasks from the database
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:8080/api/tasks', true); // calls API from Spring Boot
+        xhr.onload = () => {
+            console.log(xhr.status);
+            if (xhr.status === 200) {
+                setAllTasks(JSON.parse(xhr.responseText));
+            }
+        };
+        xhr.send();
+    }
+
+    useEffect(() => {
+        // Load tasks from database when the page loads
+        console.log('get tasks called');
+        getTasks();
+        console.log('get tasks finished');
+        console.log(allTasks);
+    }, []);
 
     const Table = (props) => {
         const {data} = props;
@@ -52,6 +65,7 @@ function TaskCard({ showEmptyRow, setShowEmptyRow, isAddClicked, setIsAddClicked
                 <Table data={tasks} />
             </table>
             </Card>
+            {allTasks ? <div>{JSON.stringify(allTasks)}</div> : <div>Loading...</div>}
         </div>
         
     );
